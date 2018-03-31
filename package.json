@@ -6,8 +6,6 @@
   "scripts": {
     "build": "node ./node_modules/webpack/bin/webpack --bail --progress --profile",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server --hot --inline",
-    "serve": "npm run build && node ./node_modules/http-server/bin/http-server public_html",
-    "start": "npm run serve",
     "mount-install": "npm i --no-bin-links",
     "urh": "rm -rf ./node_modules && npm run mount-install"
   },
@@ -30,7 +28,6 @@
     "cssnano": "^3.10.0",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.9.0",
-    "http-server": "^0.9.0",
     "node-sass": "^4.1.1",
     "postcss-loader": "^1.2.1",
     "raw-loader": "^0.5.1",
