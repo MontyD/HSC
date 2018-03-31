@@ -1,0 +1,8 @@
+---
+Name: HSC
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: app
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - HSC\SiteConfigExtension

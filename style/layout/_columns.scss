@@ -1,0 +1,11 @@
+.column {
+    &.has-vertically-aligned-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &.bordered {
+        border-left: 1px solid $grey;
+    }
+}
+

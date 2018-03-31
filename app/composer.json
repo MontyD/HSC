@@ -1,0 +1,19 @@
+{
+    "name": "HSC",
+    "description": "High Street Chapel's Public Website",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Uncle Cheese",
+            "email": "aaron@silverstripe.com"
+        }
+    ],
+    "require": {
+        "silverstripe/recipe-cms": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "SilverStripe\\Lessons\\": "src/"
+        }
+    }
+}

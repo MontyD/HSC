@@ -1,0 +1,7 @@
+---
+Name: HSCTheme
+---
+SilverStripe\View\SSViewer:
+  themes:
+    - '$public'
+    - '$default'

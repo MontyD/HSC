@@ -1,0 +1,11 @@
+.main-logo {
+    vertical-align: bottom;
+    &-title {
+        display: inline-block;
+        font-size: 3.2rem;
+        line-height: 1.4;
+    }
+    &-container {
+        margin-bottom: 0.6rem;
+    }
+}

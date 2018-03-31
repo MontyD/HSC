@@ -1,0 +1,13 @@
+.nav-logo {
+    margin-right: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+
+.navbar-menu.is-active {
+    @media (max-width: $desktop) {
+        position: absolute;
+        width: 100%;
+        background: $white;
+        z-index: 10;
+    }
+}
