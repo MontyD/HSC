@@ -1,14 +1,11 @@
 
 <section class="hero contains-overlay is-medium is-light">
     <div class="is-overlay image-slider" id="homepage-image-slider">
-        <div data-img-large="/img/test-image.jpg"
-             data-img-medium="/img/test-image.jpg"
-             data-img-small="/img/test-image.jpg">
-        </div>
-        <div data-img-large="/img/test-image-2.jpg"
-             data-img-medium="/img/test-image-2.jpg"
-             data-img-small="/img/test-image-2.jpg">
-        </div>
+        <% loop $headerImages %>
+            <img srcset="$img.ScaleWidth(400).URL 400w, $img.ScaleWidth(700).URL 700w, $img.ScaleWidth(1200).URL 1000w"
+                sizes="(max-width: 400px) 100%, (max-width: 700px) 100%, 1200px 100%"
+                src="$img.ScaleWidth(1200).URL" alt="">
+        <% end_loop %>
     </div>
     <div class="hero-body container">
         <div class="main-logo-container">

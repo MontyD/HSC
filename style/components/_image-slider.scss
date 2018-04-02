@@ -1,20 +1,20 @@
 .image-slider {
-    .active-image, .next-image {
+    img {
         position: absolute;
         left: 0;
         top: 0;
         height: 100%;
         width: 100%;
         overflow: hidden;
+        opacity: 0;
+        object-fit: cover;
+
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         transition: opacity 1.5s ease;
     }
     .active-image {
-        opacity: 0.5;
-    }
-    .next-image {
-        opacity: 0;
+        opacity: 0.4;
     }
 }
