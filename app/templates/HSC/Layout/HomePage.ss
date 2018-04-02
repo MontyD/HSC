@@ -8,11 +8,11 @@
         <% end_loop %>
     </div>
     <div class="hero-body container">
-        <div class="main-logo-container">
-            <img src="/img/HSC-logo.svg" class="main-logo" />
-            <h1 class="main-logo-title has-white-shadow">$SiteConfig.Title</h1>
+        <div class="main-logo__container">
+            <img src="/img/HSC-logo.svg" class="main-logo__img" />
+            <h1 class="main-logo__title">$SiteConfig.Title</h1>
         </div>
-        <h2 class="subtitle has-white-shadow">
+        <h2 class="subtitle has-white-shadow main-logo__subtitle">
             $SiteConfig.Tagline
         </h2>
     </div>

@@ -1,13 +1,27 @@
 .main-logo {
-    vertical-align: bottom;
-    max-height: 90px;
-    margin-right: 0.5rem;
-    &-title {
+    &__img {
+        vertical-align: bottom;
+        max-height: 90px;
+        margin-right: 0.5rem;
+    }
+
+    &__title {
+        @extend .has-white-shadow;
         display: inline-block;
         font-size: 3.2rem;
         line-height: 1.4;
     }
-    &-container {
+
+    &__container {
         margin-bottom: 0.6rem;
+    }
+
+    &__subtitle {
+        @extend .has-white-shadow;
+        text-align: center;
+        
+        @media screen and (min-width: $desktop) {
+            text-align: left;
+        }
     }
 }
