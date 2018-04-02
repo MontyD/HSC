@@ -6,10 +6,11 @@
     }
 
     &__title {
-        @extend .has-white-shadow;
         display: inline-block;
         font-size: 3.2rem;
         line-height: 1.4;
+        font-size: 4.2rem;
+        line-height: 1.1;
     }
 
     &__container {
@@ -17,7 +18,6 @@
     }
 
     &__subtitle {
-        @extend .has-white-shadow;
         text-align: center;
         
         @media screen and (min-width: $desktop) {
