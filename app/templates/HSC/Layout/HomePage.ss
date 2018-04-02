@@ -10,19 +10,14 @@
              data-img-small="/img/test-image-2.jpg">
         </div>
     </div>
-    <div class="hero-body">
-        <div class="container columns">
-            <div class="column is-8"></div>
-            <div class="column">
-                <div class="main-logo-container">
-                    <img src="/img/logo.png" class="main-logo" />
-                    <h1 class="main-logo-title has-white-shadow">$SiteConfig.Title</h1>
-                </div>
-                <h2 class="subtitle has-white-shadow">
-                    $SiteConfig.Tagline
-                </h2>
-            </div>
+    <div class="hero-body container">
+        <div class="main-logo-container">
+            <img src="/img/HSC-logo.svg" class="main-logo" />
+            <h1 class="main-logo-title has-white-shadow">$SiteConfig.Title</h1>
         </div>
+        <h2 class="subtitle has-white-shadow">
+            $SiteConfig.Tagline
+        </h2>
     </div>
 </section>
 <section class="section">
@@ -31,7 +26,7 @@
             <div class="column is-two-thirds has-vertically-aligned-content">
                 <div class="card emphasis">
                     <div class="card-content">
-                        <h2 class="subtitle is-1 has-text-grey">$titleOne</h2>
+                        <h2 class="subtitle is-3 has-text-grey">$titleOne</h2>
                         <div class="content">
                             <p>$infoOne</p>
                             <p class="has-text-black-bis">

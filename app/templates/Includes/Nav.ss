@@ -1,7 +1,7 @@
 <nav class="navbar">
     <div class="navbar-brand">
         <a class="navbar-item" href="$AbsoluteBaseUrl" title="Home">
-            <img src="/img/logo.png" class="nav-logo" />
+            <img src="/img/HSC-logo.svg" class="nav-logo" />
             $SiteConfig.Title
         </a>
         <div class="navbar-burger">

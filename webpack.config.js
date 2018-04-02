@@ -19,8 +19,6 @@ module.exports = (function() {
 
         path: path.resolve(__dirname + '/public'),
 
-        publicPath: '/',
-
         filename: './javascript/[name].js',
 
         chunkFilename: './javascript/[name].js'
@@ -77,6 +75,7 @@ module.exports = (function() {
     }
 
     config.devServer = {
+        publicPath: '/',
         proxy: {
           '**': 'http://develop'
         }

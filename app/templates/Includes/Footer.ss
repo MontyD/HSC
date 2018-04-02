@@ -7,13 +7,13 @@
                 <p>Email: <a href="mailto:$SiteConfig.emailAddress" title="Email us">$SiteConfig.emailAddress</a></p>
                 <p>$SiteConfig.address</p>
             </div>
-            <div class="column bordered">
+            <div class="column is-bordered">
                 <h3 class="subtitle is-5">Legal Information</h3>
                 <p><a href="#" title="Child Protection Act">Child Protection Act</a></p>
                 <p><a href="#" title="Privacy Policy">Privacy Policy</a></p>
                 <p><a href="#" title="Cookies Policy">Cookies Policy</a></p>
             </div>
-            <div class="column bordered">
+            <div class="column is-bordered">
                 <h3 class="subtitle is-5">$SiteConfig.Tagline</h3>
                 <p class="tiny">&copy; $SiteConfig.copyrightInfo</p>
                 <p class="tiny">$SiteConfig.charityInfo</p>

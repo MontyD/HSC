@@ -4,7 +4,7 @@
         flex-direction: column;
         justify-content: center;
     }
-    &.bordered {
+    &.is-bordered {
         border-left: 1px solid $grey;
     }
 }
