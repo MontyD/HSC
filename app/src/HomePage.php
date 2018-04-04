@@ -26,6 +26,8 @@ class HomePage extends Page {
           TextField::create('linkText', 'First button text'),
           TextField::create('highlightedLinkLocation', 'Second button link location'),
           TextField::create('highlightedLinkText', 'Second button text'),
+          TextField::create('eventsTitle', 'Events title'),
+          TextareaField::create('eventsText', 'Events description'),
           TextField::create('visitUsTitle', 'Visit us title'),
           TextField::create('visitUsSubtitle', 'Visit us subtitle')
         ], 'Metadata');
@@ -46,6 +48,8 @@ class HomePage extends Page {
       'linkText' => 'Varchar',
       'highlightedLinkLocation' => 'Varchar',
       'highlightedLinkText' => 'Varchar',
+      'eventsTitle' => 'Varchar',
+      'eventsText' => 'Text',
       'visitUsTitle' => 'Varchar',
       'visitUsSubtitle' => 'Text'
     );

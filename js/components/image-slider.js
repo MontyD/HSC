@@ -18,6 +18,7 @@ export default class ImageSlider {
 
         this.assertImages();
         this.loop();
+        window.setTimeout(() => this.baseElement.className += ' image-slider--active', 50);
     }
 
     get currentImage() { 

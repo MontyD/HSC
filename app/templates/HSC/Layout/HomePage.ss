@@ -37,29 +37,14 @@
                     </div>
                 </div>
             </div>
-            <div class="column">
+            <div class="column has-vertically-aligned-content">
                 <div class="card">
-                    <div class="card-content">
-                        <h4 class="subtitle is-4 has-text-right">Upcoming Events</h4>
-                        <% loop upcomingEvents() %>
-                            <div class="content">
-                                <a title="$Event.Title" href="$Link">$Event.Title</a>
-                                <p class="is-marginless has-text-justified">$Event.shortDescription.Summary(12, 5)</p>
-                                <p class="has-text-right has-text-grey">
-                                    $DateRange
-                                    <% if AllDay %>
-                                        All Day
-                                    <% else %>
-                                        <% if StartTime %>
-                                            $TimeRange
-                                        <% end_if %>
-                                    <% end_if %>
-                                </p>
-                            </div>
-                        <% end_loop %>
-                        <div class="has-text-centered">
-                            <a href="#" title="Notice sheet" class="button is-primary">Notice sheet</a>
-                        </div>
+                    <div class="card-header">
+                        <p class="card-header-title">$eventsTitle</p>
+                    </div>
+                    <div class="card-content has-text-grey">$eventsText</div>
+                    <div class="card-footer">
+                        <a href="#" title="Notice sheet" class="card-footer-item">Notice sheet</a>
                     </div>
                 </div>
             </div>
