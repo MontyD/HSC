@@ -2,6 +2,7 @@
 
 namespace HSC;
 
+use SilverStripe\ORM\DataObject;
 use SilverStripe\View\Requirements;
 use PageController;
 
@@ -16,5 +17,9 @@ class HomePageController extends PageController {
 
     public function services() {
       return Service::get()->limit(2);
+    }
+
+    public function noticeSheet() {
+      return DataObject::get(NoticeSheet::class, '', 'weekStarting DESC', '', '1')->first();
     }
 }

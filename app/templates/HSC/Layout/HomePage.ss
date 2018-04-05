@@ -40,12 +40,23 @@
             <div class="column has-vertically-aligned-content">
                 <div class="card">
                     <div class="card-header">
-                        <p class="card-header-title">$eventsTitle</p>
+                        <p class="card-header-title">
+                            $eventsTitle
+                        </p>
+                        <span class="card-header-icon">
+                            <span class="icon">
+                                <i class="far fa-calendar-alt has-text-primary"></i>
+                            </span>
+                        </span>
                     </div>
                     <div class="card-content has-text-grey">$eventsText</div>
-                    <div class="card-footer">
-                        <a href="#" title="Notice sheet" class="card-footer-item">Notice sheet</a>
-                    </div>
+                    <% if $noticeSheet %>
+                        <div class="card-footer">
+                            <a href="$noticeSheet.file.getAbsoluteURL()" title="Notice sheet" class="card-footer-item">
+                                Notice sheet for week starting $noticeSheet.weekStarting.Nice
+                            </a>
+                        </div>
+                    <% end_if %>
                 </div>
             </div>
         </div>
