@@ -38,13 +38,10 @@ class HeaderImage extends DataObject {
     }
 
     public function getCMSFields() {
-        $fields = FieldList::create(
-            $uploader = UploadField::create('img', 'Image')
-        );
-
+        $uploader = UploadField::create('img', 'Image');
         $uploader->setFolderName('header-images');
         $uploader->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
 
-        return $fields;
+        return FieldList::create($uploader);
     }
 }

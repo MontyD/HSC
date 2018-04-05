@@ -53,7 +53,7 @@
 </section>
 <section class="section">
     <div class="image-slice">
-        <div class="image" style="background-image: url(/img/worship.jpg)"></div>
+        <div class="image" style="background-image: url($secondSectionImage.ScaleWidth(1200).URL)"></div>
         <div class="slice"></div>
     </div>
     <article class="container is-light">
