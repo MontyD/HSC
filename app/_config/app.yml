@@ -6,3 +6,7 @@ SilverStripe\Core\Manifest\ModuleManifest:
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - HSC\SiteConfigExtension
+SilverStripe\GraphQL\Controller:
+  schema:
+    scaffolding_providers:
+      - HSC\Podcasts\Podcast
