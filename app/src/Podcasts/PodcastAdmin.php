@@ -11,6 +11,8 @@ class PodcastAdmin extends ModelAdmin {
     private static $url_segment = 'podcasts';
 
     private static $managed_models = [
-        Podcast::class
+        Podcast::class,
+        Author::class,
+        Series::class
     ];
 }

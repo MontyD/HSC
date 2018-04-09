@@ -5,7 +5,7 @@ namespace HSC;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\TextField;   
+use SilverStripe\Forms\TextField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Versioned\Versioned;
 

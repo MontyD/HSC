@@ -10,3 +10,5 @@ SilverStripe\GraphQL\Controller:
   schema:
     scaffolding_providers:
       - HSC\Podcasts\Podcast
+      - HSC\Podcasts\Author
+      - HSC\Podcasts\Series
