@@ -1,21 +1,36 @@
 version: '3'
 services:
- web:
-   image: brettt89/silverstripe-web
-   working_dir: /var/www
-   ports:
-    - 80:80
-   volumes:
-    - .:/var/www/html
-
-
- database:
-   image: mysql
-   volumes:
-    - db-data:/var/lib/mysql
-   restart: always
-   environment:
-    - MYSQL_ALLOW_EMPTY_PASSWORD=true
-
+  web:
+    image: nginx:latest
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/HSC
+      - ./site.conf:/etc/nginx/conf.d/site.conf
+    links:
+      - php
+    depends_on:
+      - php
+      - database
+  php:
+    image: nanoninja/php-fpm
+    restart: always
+    volumes:
+      - ./:/HSC
+    environment:
+      PHP__display_errors: 'On'
+      PHP__opcache.enable: 'On'
+      PHP__memory_limit:   '256M'
+      PHP__post_max_size:  '50M'
+      PHP__date.timezone:  '"Europe/London"'
+      PHP__pm.max_children: '10'
+  database:
+    image: mysql
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
 volumes:
- db-data:
+  db-data:
