@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section dark-gradient">
     <article class="container">
         <div class="card emphasis">
             <div class="card-content">

@@ -21,7 +21,7 @@ export default class ImageSlider {
         window.setTimeout(() => this.baseElement.className += ' image-slider--active', 50);
     }
 
-    get currentImage() { 
+    get currentImage() {
         return this.images[this.index];
     }
 
@@ -37,7 +37,7 @@ export default class ImageSlider {
         if (this.lastImage) {
             this.lastImage.className = '';
         }
-        
+
         window.setTimeout(this.loop.bind(this), this.interval);
     }
 

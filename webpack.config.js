@@ -12,7 +12,8 @@ module.exports = (function() {
     let config = {};
 
     config.entry = {
-        app: './js/index.js'
+        app: './js/index.js',
+        home: './js/home.js'
     };
 
     config.output = {
@@ -21,7 +22,9 @@ module.exports = (function() {
 
         filename: './javascript/[name].js',
 
-        chunkFilename: './javascript/[name].js'
+        chunkFilename: './javascript/[name].js',
+
+        publicPath: isBuild ? '/' : 'http://develop'
 
     };
 
@@ -77,8 +80,16 @@ module.exports = (function() {
     config.devServer = {
         publicPath: '/',
         proxy: {
-          '**': 'http://develop'
-        }
+          '**': {
+            target: {
+                host: 'develop',
+                protocol: 'http:',
+                port: 80
+              },
+              changeOrigin: true,
+              secure: false
+          }
+        },
     };
 
     return config;
