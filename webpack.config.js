@@ -24,7 +24,7 @@ module.exports = (function() {
 
         chunkFilename: './javascript/[name].js',
 
-        publicPath: isBuild ? '/' : 'http://develop'
+        publicPath: '/'
 
     };
 

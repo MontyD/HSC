@@ -18,6 +18,10 @@ class HomePage extends Page {
 
     private static $has_one = ['secondSectionImage' => Image::class];
 
+    private static $owns = [
+      'secondSectionImage',
+    ];
+
     public function getCMSFields() {
       $uploader = UploadField::create('secondSectionImage', 'Visit us image');
       $uploader->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);

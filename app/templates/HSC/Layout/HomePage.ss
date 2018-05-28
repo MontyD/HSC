@@ -80,7 +80,7 @@
                     <div class="card-content">
                         <% loop services() %>
                             <div class="content">
-                                <a title="$name" href="/services">$name</a>
+                                <a title="$name" href="/services#$name">$name</a>
                                 <p class="description is-marginless">$shortDescription</p>
                                 <p class="date has-text-right has-text-grey">$time</p>
                             </div>
