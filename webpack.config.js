@@ -86,7 +86,6 @@ module.exports = (function() {
                 protocol: 'http:',
                 port: 80
               },
-              changeOrigin: true,
               secure: false
           }
         },

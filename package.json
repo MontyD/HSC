@@ -4,10 +4,8 @@
   "description": "Development for High Street Chapel website",
   "main": "npm run start",
   "scripts": {
-    "build": "node ./node_modules/webpack/bin/webpack --bail --progress --profile",
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server --hot --inline --host 0.0.0.0",
-    "mount-install": "npm i --no-bin-links",
-    "urh": "rm -rf ./node_modules && npm run mount-install"
+    "build": "npm i && node ./node_modules/webpack/bin/webpack --bail --progress --profile",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server --hot --inline --host 0.0.0.0"
   },
   "repository": {
     "type": "git",
