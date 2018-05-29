@@ -1,7 +1,9 @@
 <section class="section gradient">
-    <article class="container">
+    <div class="container">
+        <h1 class="title is-1 has-white-shadow">$mainTitle</h1>
+        <p class="title is-5">$description</p>
         <% loop services() %>
-            <div class="card emphasis has-vertical-margin">
+            <article class="card emphasis has-vertical-margin">
                 <div class="card-content $EvenOdd">
                         <div class="content">
                             <h2 id="$name">$name</h2>
@@ -10,7 +12,7 @@
                             $description
                         </div>
                 </div>
-            </div>
+            </article>
         <% end_loop %>
-    </article>
+    </div>
 </section>
