@@ -16,5 +16,6 @@ $yellow: #f5bb52;
 $primary: $blue;
 $info: $turquoise;
 $success: $yellow;
+$transparentWhite: transparentize($white, 0.5);
 $family-sans-serif: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 $title-weight: normal;
