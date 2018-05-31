@@ -6,9 +6,12 @@
             <article class="card emphasis has-vertical-margin">
                 <div class="card-content $EvenOdd">
                         <div class="content">
-                            <h2 id="$name" class="has-subtle-bottom-border">$name</h2>
+                            <h2 id="$name" class="has-subtle-bottom-border is-clearfix">
+                                $name
+                                <span class="has-text-grey is-pulled-right is-size-4">$time</span>
+                            </h2>
+                            
                             <p class="description is-marginless">$shortDescription</p>
-                            <p class="date has-text-right has-text-grey">$time</p>
                             $description
                         </div>
                 </div>
