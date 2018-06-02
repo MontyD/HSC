@@ -8,4 +8,13 @@
 .is-important-text {
     font-size: 1.2rem;
     color: $darkGrey;
+    border-left: 3px solid $yellow;
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+}
+
+html {
+    @media screen and (max-width: 500px) {
+        font-size: 14px;
+    }
 }
