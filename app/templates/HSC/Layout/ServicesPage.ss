@@ -1,11 +1,10 @@
 <section class="section gradient">
     <div class="container">
-        <h1 class="title is-1 has-white-shadow">$mainTitle</h1>
-        <p class="title is-5">$description</p>
+        <h1 class="title is-1 has-text-grey">$mainTitle</h1>
         <% loop $services %>
             <article class="card emphasis has-top-margin">
                 <div class="card-content $EvenOdd">
-                        <h2 id="$name" class="title is-3 has-subtle-bottom-border is-clearfix">
+                        <h2 id="$name" class="title is-3 is-clearfix">
                             $name
                             <span class="has-text-grey is-pulled-right is-size-4">$time</span>
                         </h2>

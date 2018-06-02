@@ -18,7 +18,6 @@ class ServicesPage extends Page {
         $fields->removeFieldFromTab('Root.Main', 'Content');
         $fields->addFieldsToTab('Root.Main', [
           TextField::create('mainTitle', 'Main title'),
-          TextareaField::create('description', 'Description'),
           TextField::create('findOutMoreTitle', 'Find out more title'),
           TextareaField::create('findOutMoreText', 'Find out more text'),
           TextField::create('linkLocation', 'First button link location'),
@@ -31,7 +30,6 @@ class ServicesPage extends Page {
 
     private static $db = array(
       'mainTitle' => 'Varchar',
-      'description' => 'Text',
       'findOutMoreTitle' => 'Varchar',
       'findOutMoreText' => 'Text',
       'linkLocation' => 'Varchar',
