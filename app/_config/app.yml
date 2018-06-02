@@ -12,3 +12,7 @@ SilverStripe\GraphQL\Controller:
       - HSC\Podcasts\Podcast
       - HSC\Podcasts\Author
       - HSC\Podcasts\Series
+SilverStripe\GraphQL\Auth\Handler:
+  authenticators:
+    - class: HSC\Podcasts\Authenticator
+      priority: 10
