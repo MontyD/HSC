@@ -25,6 +25,7 @@ class HomePage extends Page {
     public function getCMSFields() {
       $uploader = UploadField::create('secondSectionImage', 'Visit us image');
       $uploader->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
+      $uploader->setFolderName('home-page-images');
 
       $fields = parent::getCMSFields();
       $fields->removeFieldFromTab('Root.Main', 'Content');

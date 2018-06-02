@@ -32,11 +32,13 @@ class Service extends DataObject {
     ];
 
     public function getCMSFields() {
+        $uploadField = UploadField::create('Photo', 'Image');
+        $uploadField->setFolderName('service-images');
         $fields = FieldList::create(
             TextField::create('name', 'Name'),
             TextField::create('time', 'Time'),
             TextareaField::create('shortDescription', 'Short Description'),
-            UploadField::create('Photo', 'Image'),
+            $uploadField,
             new HTMLEditorField('description', 'Description')
         );
         return $fields;
