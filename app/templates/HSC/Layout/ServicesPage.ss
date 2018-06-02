@@ -24,7 +24,7 @@
             </article>
         <% end_loop %>
         <article class="has-top-margin">
-            <h3 class="title is-3 has-text-centered has-text-grey has-top-margin">
+            <h3 class="title is-3 has-text-centered has-white-shadow has-text-grey has-top-margin">
                 $findOutMoreTitle
             </h3>
             <p class="has-text-centered">
