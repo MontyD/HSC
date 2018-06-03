@@ -15,4 +15,4 @@ SilverStripe\GraphQL\Controller:
 SilverStripe\GraphQL\Auth\Handler:
   authenticators:
     - class: HSC\Podcasts\Authenticator
-      priority: 10
+      priority: 50
