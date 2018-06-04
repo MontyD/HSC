@@ -41,12 +41,14 @@ export default class ImageSlider {
     private loop(): void {
         this.incrementCounter();
 
-        this.currentImage.className = this.classNames.active;
+        if (this.currentImage) {
+            this.currentImage.className = this.classNames.active;
+        }
         if (this.lastImage) {
             this.lastImage.className = '';
         }
 
-        window.setTimeout(this.loop.bind(this), this.interval!);
+        window.setTimeout(this.loop.bind(this), this.interval);
     }
 
     private incrementCounter(): void {
