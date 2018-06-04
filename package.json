@@ -5,7 +5,7 @@
   "main": "npm run start",
   "scripts": {
     "build": "npm i && node ./node_modules/webpack/bin/webpack --bail --progress --profile",
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server --hot --inline --host 0.0.0.0"
+    "dev": "node ./node_modules/webpack-serve/cli --hot --inline --host 0.0.0.0"
   },
   "repository": {
     "type": "git",
@@ -18,23 +18,30 @@
   },
   "homepage": "https://github.com/HSC/HSC#readme",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.42",
-    "@babel/preset-env": "^7.0.0-beta.42",
-    "autoprefixer": "^6.5.4",
-    "babel-loader": "^8.0.0-beta.2",
-    "css-loader": "^0.26.1",
-    "cssnano": "^3.10.0",
-    "extract-text-webpack-plugin": "^2.0.0",
-    "file-loader": "^0.9.0",
-    "node-sass": "^4.1.1",
-    "postcss-loader": "^1.2.1",
-    "raw-loader": "^0.5.1",
-    "sass-loader": "^4.1.1",
-    "style-loader": "^0.13.1",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1"
+    "@types/jest": "^23.0.0",
+    "@types/node": "^10.3.0",
+    "@types/react": "^16.3.16",
+    "@types/react-dom": "^16.0.5"
   },
   "dependencies": {
-    "bulma": "^0.5.1"
+    "awesome-typescript-loader": "^5.0.0",
+    "bulma": "^0.5.1",
+    "mini-css-extract-plugin": "^0.4.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "tslint": "^5.10.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^2.9.1",
+    "webpack-serve": "^1.0.2",
+    "autoprefixer": "^8.6.0",
+    "css-loader": "^0.28.11",
+    "cssnano": "^3.10.0",
+    "file-loader": "^1.1.11",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^7.0.2",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.10.2"
   }
 }

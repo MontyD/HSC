@@ -1,14 +1,22 @@
-import resizeEvent from '../DOM/resize-event';
+interface ImageSliderOptions {
+    interval: number
+}
 
 export default class ImageSlider {
 
-    constructor(selector, options = {}) {
+    private baseElement: Element;
+    private interval: number;
+    private images: Element[];
+
+    private classNames = {
+        active: 'active-image'
+    };
+    private index = -1;
+
+    constructor(selector: string, options: ImageSliderOptions = {interval: 4000}) {
         this.baseElement = document.querySelector(selector);
-        this.interval = options.interval || 4000;
-        this.classNames = {
-            active: 'active-image',
-        };
-        this.index = -1;
+        this.interval = options.interval;
+
 
         if (!this.baseElement) {
             throw new Error('Unable to attach ImageSlider to base element');
@@ -21,16 +29,16 @@ export default class ImageSlider {
         window.setTimeout(() => this.baseElement.className += ' image-slider--active', 50);
     }
 
-    get currentImage() {
+    private get currentImage(): Element | null {
         return this.images[this.index];
     }
 
-    get lastImage() {
+    private get lastImage(): Element | null {
         const lastIndex = this.index === 0 ? this.images.length - 1 : this.index - 1;
         return this.images && this.images.length ? this.images[lastIndex] : null;
     }
 
-    loop() {
+    private loop(): void {
         this.incrementCounter();
 
         this.currentImage.className = this.classNames.active;
@@ -38,14 +46,14 @@ export default class ImageSlider {
             this.lastImage.className = '';
         }
 
-        window.setTimeout(this.loop.bind(this), this.interval);
+        window.setTimeout(this.loop.bind(this), this.interval!);
     }
 
-    incrementCounter() {
+    private incrementCounter(): void {
         this.index = this.index === this.images.length - 1 ? 0 : this.index + 1;
     }
 
-    assertImages() {
+    private assertImages(): void {
         if (this.images.length === 0) {
             throw new Error('No image elements inside ImageSlider base element');
         }

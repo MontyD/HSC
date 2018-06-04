@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isBuild = process.env['npm_lifecycle_event'] === 'build';
 
@@ -11,9 +11,12 @@ module.exports = (function() {
 
     let config = {};
 
+    config.mode = isBuild ? 'production' : 'development';
+
     config.entry = {
-        app: './js/index.js',
-        home: './js/home.js'
+        app: './ts/index.ts',
+        home: './ts/home.ts',
+        talks: './ts/talks.ts'
     };
 
     config.output = {
@@ -30,29 +33,30 @@ module.exports = (function() {
 
     config.module = {
         rules: [{
-            test: /\.js$/,
-            use: 'babel-loader',
-            exclude: path.resolve(__dirname, 'node_modules')
+            test: /\.ts(x)?$/,
+            loader: 'awesome-typescript-loader',
+            options: { 
+                configFile: 'tslint.json',
+                fix: true
+             }
         }, {
             test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: [
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: function() {
-                                return [
-                                    autoprefixer,
-                                    cssnano
-                                ];
-                            }
+            use: [
+                MiniCssExtractPlugin.loader,                    
+                'css-loader',
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: function() {
+                            return [
+                                autoprefixer,
+                                cssnano
+                            ];
                         }
-                    },
-                    'sass-loader'
-                ]
-            })
+                    }
+                },
+                'sass-loader'
+            ]
         }, {
             test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
             use: 'file-loader'
@@ -63,7 +67,9 @@ module.exports = (function() {
     };
 
     config.plugins = [
-        new ExtractTextPlugin('css/[name].css'),
+        new MiniCssExtractPlugin({
+            filename: "[name].css"
+        })
     ];
 
     if (isBuild) {

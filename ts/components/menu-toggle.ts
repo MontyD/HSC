@@ -1,19 +1,21 @@
 export default class MenuToggle {
 
-    constructor() {
-        this.menuActive = false;
-        this.clickTarget = document.getElementsByClassName('navbar-burger')[0];
-        this.menuTarget = document.getElementsByClassName('navbar-menu')[0];
+    private menuActive = false;
+
+    constructor(
+        private clickTarget: Element = document.getElementsByClassName('navbar-burger')[0],
+        private menuTarget: Element = document.getElementsByClassName('navbar-menu')[0]
+    ) {
 
         if (!this.clickTarget || !this.menuTarget) {
-            throw new ('Unable to attach menu toggle to elements');
+            throw new Error('Unable to attach menu toggle to elements');
         }
 
         this.clickTarget.addEventListener('click', this.toggleMenu.bind(this));
         window.addEventListener('click', this.closeMenu.bind(this));
     }
 
-    toggleMenu(evt) {
+    public toggleMenu(evt: MouseEvent): void {
         evt.preventDefault();
         evt.stopPropagation();
         if (this.menuActive) {
@@ -23,13 +25,13 @@ export default class MenuToggle {
         }
     }
 
-    openMenu() {
+    public openMenu() {
         this.menuActive = true;
         this.menuTarget.classList.add('is-active');
         this.clickTarget.classList.add('is-active');
     }
 
-    closeMenu() {
+    public closeMenu() {
         this.menuActive = false;
         this.menuTarget.classList.remove('is-active');
         this.clickTarget.classList.remove('is-active');
