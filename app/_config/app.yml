@@ -9,10 +9,10 @@ SilverStripe\SiteConfig\SiteConfig:
 SilverStripe\GraphQL\Controller:
   schema:
     scaffolding_providers:
-      - HSC\Podcasts\Podcast
-      - HSC\Podcasts\Author
-      - HSC\Podcasts\Series
+      - HSC\Talks\Talk
+      - HSC\Talks\Author
+      - HSC\Talks\Series
 SilverStripe\GraphQL\Auth\Handler:
   authenticators:
-    - class: HSC\Podcasts\Authenticator
+    - class: HSC\Talks\Authenticator
       priority: 50

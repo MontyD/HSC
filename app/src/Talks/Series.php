@@ -1,6 +1,6 @@
 <?php
 
-namespace HSC\Podcasts;
+namespace HSC\Talks;
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\TextField;
@@ -22,7 +22,7 @@ class Series extends DataObject implements ScaffoldingProvider {
         MySQLSchemaManager::ID => 'ENGINE=MyISAM'
     ];
 
-    private static $has_many = ['podcasts' => Podcast::class];
+    private static $has_many = ['talks' => Talk::class];
     
 
     private static $has_one = ['image' => Image::class];

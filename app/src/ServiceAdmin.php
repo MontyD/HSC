@@ -4,7 +4,7 @@ namespace HSC;
 
 use SilverStripe\Admin\ModelAdmin;
 
-class PodcastAdmin extends ModelAdmin {
+class ServiceAdmin extends ModelAdmin {
 
     private static $menu_title = 'Services';
 

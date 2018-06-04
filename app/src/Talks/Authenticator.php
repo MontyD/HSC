@@ -1,6 +1,6 @@
 <?php
 
-namespace HSC\Podcasts;
+namespace HSC\Talks;
 
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Environment;
