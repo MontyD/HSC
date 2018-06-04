@@ -26,6 +26,7 @@ class Author extends DataObject implements ScaffoldingProvider {
     private static $has_one = array(
         'image' => Image::class
     );
+    private static $owns = ['image'];
 
     public function canView($member = null, $context = []) {
         return true;

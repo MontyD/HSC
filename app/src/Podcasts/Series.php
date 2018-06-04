@@ -22,30 +22,28 @@ class Series extends DataObject implements ScaffoldingProvider {
         MySQLSchemaManager::ID => 'ENGINE=MyISAM'
     ];
 
-    private static $has_many = array(
-        'podcasts' => Podcast::class
-    );
+    private static $has_many = ['podcasts' => Podcast::class];
+    
 
-    private static $has_one = array(
-        'image' => Image::class
-    );
+    private static $has_one = ['image' => Image::class];
+    private static $owns = ['image'];
 
-    private static $db = array(
+    private static $db = [
         'name' => 'Varchar',
         'description' => 'Varchar'
-    );
+    ];
 
-    private static $indexes = array(
-        'SearchFields' => array(
+    private static $indexes = [
+        'SearchFields' => [
             'type' => 'fulltext',
             'columns' => ['name']
-        )
-    );
+        ]
+    ];
 
-    private static $summary_fields = array(
+    private static $summary_fields = [
         'name' => 'Name',
         'Created' => 'Created'
-    );
+    ];
 
     public function canView($member = null, $context = []) {
         return true;
@@ -61,7 +59,7 @@ class Series extends DataObject implements ScaffoldingProvider {
     }
 
     public function getCMSValidator() {
-		return new RequiredFields(array('name', 'description'));
+		return new RequiredFields(['name', 'description']);
     }
     
     public function provideGraphQLScaffolding(SchemaScaffolder $scaffolder) {

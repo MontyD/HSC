@@ -28,6 +28,7 @@ class Podcast extends DataObject implements ScaffoldingProvider {
         'author' => Author::class,
         'series' => Series::class
     );
+    private static $owns = ['audioFile'];
 
     private static $db = array(
         'name' => 'Varchar',
