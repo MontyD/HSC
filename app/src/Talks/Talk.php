@@ -49,7 +49,7 @@ class Talk extends DataObject implements ScaffoldingProvider {
 
     private static $summary_fields = [
         'name' => 'Name',
-        'Created' => 'Created'
+        'date' => 'Date'
     ];
 
     public function canView($member = null, $context = []) {
