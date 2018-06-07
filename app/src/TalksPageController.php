@@ -2,6 +2,7 @@
 
 namespace HSC;
 
+use SilverStripe\View\Requirements;
 use PageController;
 
 class TalksPageController extends PageController {
