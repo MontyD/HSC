@@ -14,11 +14,16 @@ export default class ImageSlider {
     private index = -1;
 
     constructor(selector: string, options: ImageSliderOptions = {interval: 4000}) {
-        this.baseElement = document.querySelector(selector);
+        const element = document.querySelector(selector);
+        if (element === null) {
+            throw new Error(`Selector ${selector} returned no elements`);
+        }
+
+        this.baseElement = element;
         this.interval = options.interval;
 
 
-        if (!this.baseElement) {
+        if (this.baseElement === null) {
             throw new Error('Unable to attach ImageSlider to base element');
         }
 

@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const isBuild = process.env['npm_lifecycle_event'] === 'build';
 
@@ -30,6 +31,10 @@ module.exports = (function() {
         publicPath: '/'
 
     };
+
+    config.resolve = {
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+    },
 
     config.module = {
         rules: [{
@@ -68,15 +73,26 @@ module.exports = (function() {
 
     config.plugins = [
         new MiniCssExtractPlugin({
-            filename: "[name].css"
+            filename: "css/[name].css"
         })
     ];
 
     if (isBuild) {
         config.plugins.push(
             new webpack.NoEmitOnErrorsPlugin(),
-            new webpack.optimize.UglifyJsPlugin()
         );
+        config.optimization = {
+            minimizer: [
+                new UglifyJsPlugin({
+                    uglifyOptions: {
+                        output: {
+                            comments: false
+                        },
+                        minify: {},
+                    }
+                })
+            ]
+        }
     }
 
     if (!isBuild) {
