@@ -12,8 +12,8 @@ class PageController extends ContentController {
         Requirements::themedCSS('app');
         Requirements::themedJavascript('app');
         Requirements::javascript('https://use.fontawesome.com/releases/v5.0.9/js/all.js', [
-            "async" => true,
-            "defer" => true
+            'async' => true,
+            'defer' => true
         ]);
     }
 }

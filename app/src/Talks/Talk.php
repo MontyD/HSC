@@ -87,7 +87,7 @@ class Talk extends DataObject implements ScaffoldingProvider {
     public function provideGraphQLScaffolding(SchemaScaffolder $scaffolder) {
         $scaffolder
             ->type(Talk::class)
-                ->addFields(['name', 'description', 'audioFile', 'author', 'series'])
+                ->addFields(['ID', 'name', 'description', 'audioFile', 'author', 'series', 'date'])
                 ->operation(SchemaScaffolder::READ)
                     ->setUsePagination(true)
                     ->end()
