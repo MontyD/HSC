@@ -5,10 +5,7 @@
             <article class="card emphasis has-top-margin">
                 <div class="card-content $EvenOdd">
                         <h2 id="$name" class="title is-3 is-clearfix">
-                            $name
-                            <% if $icon %>
-                                <i class="far $icon has-text-grey"></i>
-                            <% end_if %>                           
+                            $name                    
                             <span class="has-text-grey is-pulled-right is-size-4">$time</span>
                         </h2>
                         
