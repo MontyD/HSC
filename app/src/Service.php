@@ -21,6 +21,7 @@ class Service extends DataObject {
 
     private static $db = [
         'name' => 'Varchar',
+        'icon' => 'Varchar',
         'time' => 'Varchar',
         'shortDescription' => 'Text',
         'description' => 'HTMLText'
@@ -36,6 +37,7 @@ class Service extends DataObject {
         $uploadField->setFolderName('service-images');
         $fields = FieldList::create(
             TextField::create('name', 'Name'),
+            TextField::create('icon', 'Icon (fontawesome)'),
             TextField::create('time', 'Time'),
             TextareaField::create('shortDescription', 'Short Description'),
             $uploadField,
