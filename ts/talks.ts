@@ -1,5 +1,5 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {TalkList} from './talks/components/talk-list';
+import { App } from './talks/components/app';
 
-render(TalkList, document.getElementById('app'));
+render(React.createElement(App), document.getElementById('app'));
