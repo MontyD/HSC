@@ -12,11 +12,8 @@ class HomePageController extends PageController {
 
     public function init() {
       parent::init();
+      Requirements::javascript('https://maps.googleapis.com/maps/api/js?key=AIzaSyDeK6LmQ6RljdxyUWMnzfob-dsqIrrxHZ4');
       Requirements::themedJavascript('home');
-      Requirements::javascript('https://maps.googleapis.com/maps/api/js?key=AIzaSyDeK6LmQ6RljdxyUWMnzfob-dsqIrrxHZ4', [
-        'async' => true,
-        'defer' => true
-      ]);
     }
 
     public function services() {

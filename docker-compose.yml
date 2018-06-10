@@ -21,8 +21,6 @@ services:
     environment:
       PHP__display_errors: 'On'
       PHP__opcache.enable: 'On'
-      PHP__memory_limit:   '256M'
-      PHP__post_max_size:  '50M'
       PHP__date.timezone:  '"Europe/London"'
       PHP__pm.max_children: '10'
   database:

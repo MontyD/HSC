@@ -3,7 +3,7 @@ import { graphql, DataProps } from 'react-apollo';
 import { READ_TALKS } from '../graphql/talks-queries';
 import { TalkResponse } from '../Models/talk';
 
-const Talks: React.SFC<DataProps<TalkResponse>> = ({data: {loading, error, readTalks}}) => {
+const Talks: React.SFC<DataProps<TalkResponse>> = ({data: {readTalks, loading, error}}) => {
     if (loading) {
         return <div>Loading</div>;
     }
@@ -13,7 +13,6 @@ const Talks: React.SFC<DataProps<TalkResponse>> = ({data: {loading, error, readT
     if (!readTalks || !readTalks.edges || !readTalks.edges.length) {
         return <div>No talks</div>;
     }
-    console.log(readTalks.edges);
     return <div> {readTalks.edges.map(({node}) => <div key={node.ID}>{node.name} {node.date}</div>)} </div>;
 }
 

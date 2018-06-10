@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const READ_TALKS = gql`{
-	readTalks {
+	readTalks(offset: 1, limit: 1) {
 		pageInfo {
 			totalCount
 			hasNextPage
@@ -9,15 +9,24 @@ export const READ_TALKS = gql`{
 		}
 		edges {
 			node {
-                ID
-                name
-                date
+				ID
+				name
 				description
+				date
 				audioFile {
 					url
 				}
 				author {
 					name
+					image {
+						url
+					}
+				}
+				series {
+					name
+					image {
+						url
+					}
 				}
 			}
 		}

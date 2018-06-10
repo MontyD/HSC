@@ -10,6 +10,8 @@
                 "singleline": "never"
             }
         ],
+        "no-unused-variable": true,
+        "semicolon": [true, "always"],
         "ter-indent": [true, 4, "spaces"]
     },
     "types": [
