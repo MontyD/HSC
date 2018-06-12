@@ -14,6 +14,6 @@ const Talks: React.SFC<DataProps<TalkResponse>> = ({data: {readTalks, loading, e
         return <div>No talks</div>;
     }
     return <div> {readTalks.edges.map(({node}) => <div key={node.ID}>{node.name} {node.date}</div>)} </div>;
-}
+};
 
 export const TalkList = graphql<{}, TalkResponse, {}>(READ_TALKS)(Talks);
