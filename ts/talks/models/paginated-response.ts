@@ -1,5 +1,5 @@
-export type PaginatedResponse<T, QueryName extends string> = {
-    [key in QueryName]: {
+export type PaginatedResponse<T> = {
+    [key: string]: {
         pageInfo: {
             totalCount: number;
             hasNextPage: boolean;
@@ -8,5 +8,5 @@ export type PaginatedResponse<T, QueryName extends string> = {
         edges: {
             node: T;
         }[];
-    };
+    }  
 };

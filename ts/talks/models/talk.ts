@@ -1,4 +1,3 @@
-import { PaginatedResponse } from './paginated-response';
 import { AudioFile } from './audio-file';
 import { Image } from './image';
 
@@ -13,5 +12,3 @@ export interface Talk {
         image: Image;
     };
 }
-
-export interface TalkResponse extends PaginatedResponse<Talk, 'readTalks'> {}
