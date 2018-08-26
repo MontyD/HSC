@@ -1,12 +1,14 @@
-export type PaginatedResponse<T> = {
+export interface PageInfo {
+    totalCount: number;
+    hasNextPage: boolean;
+    hasPreviousPage: boolean;
+}
+
+export interface PaginatedResponse<T> {
     [key: string]: {
-        pageInfo: {
-            totalCount: number;
-            hasNextPage: boolean;
-            hasPreviousPage: boolean;
-        };
         edges: {
             node: T;
         }[];
-    }  
-};
+        pageInfo: PageInfo;
+    };
+}
