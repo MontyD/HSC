@@ -3,6 +3,8 @@ import { DataProps } from 'react-apollo';
 import { ApolloError } from 'apollo-client';
 import { PaginatedResponse, PageInfo, PaginatedQueryVariables } from '../Models/paginated-response';
 
+const PAGE_SIZE = 1;
+
 interface PaginatedProps<T> extends DataProps<PaginatedResponse<T>, PaginatedQueryVariables> {}
 export interface PaginatedChildProps<T> {
     error?: ApolloError;
@@ -14,15 +16,20 @@ export const paginationOptions = {
     options: {
         variables: {
             offset: 0,
-            limit: 1
+            limit: PAGE_SIZE
         }
     }
 };
 
-const PaginationControls = ({hasNextPage, hasPreviousPage, updatePage}: PageInfo & {updatePage: () => void}) => (
+interface PaginationControlsProps extends PageInfo {
+    onNextPage: () => void;
+    onPreviousPage: () => void;
+}
+
+const PaginationControls = ({hasNextPage, hasPreviousPage, onNextPage, onPreviousPage}: PaginationControlsProps) => (
     <div className="pagination">
-        <button className="pagination__button" disabled={!hasPreviousPage}>Previous</button>
-        <button className="pagination__button" disabled={!hasNextPage}>Next</button>
+        <button className="pagination__button" disabled={!hasPreviousPage} onClick={onPreviousPage}>Previous</button>
+        <button className="pagination__button" disabled={!hasNextPage} onClick={onNextPage}>Next</button>
     </div>
 );
 
@@ -32,7 +39,8 @@ export function pagination<T> (Component: React.ComponentType<PaginatedChildProp
         constructor(props: PaginatedProps<T>) {
             super(props);
 
-            this.updatePage = this.updatePage.bind(this);
+            this.onNextPageRequested = this.onNextPageRequested.bind(this);
+            this.onPreviousPageRequested = this.onPreviousPageRequested.bind(this);
         }
 
         assertQueryAvailable({loading, error, [queryName]: data}: {loading?: boolean, error?: any, [queryName: string]: any}): void {
@@ -41,12 +49,40 @@ export function pagination<T> (Component: React.ComponentType<PaginatedChildProp
             }
         }
 
-        updatePage(): void {
+        onNextPageRequested(): void {
+            const {data} = this.props;
+            const newOffset = data.variables.offset + PAGE_SIZE;
+            if (newOffset <= data[queryName]!.pageInfo.totalCount) {
+                this.fetchNewOffset(data.variables.offset + PAGE_SIZE);
+            }
+        }
 
+        onPreviousPageRequested(): void {
+            const {data} = this.props;
+            const newOffset = data.variables.offset - PAGE_SIZE;
+            if (newOffset >= 0 ) {
+                this.fetchNewOffset(newOffset);
+            }
+        }
+
+        fetchNewOffset(newOffset: number) {
+            const {data} = this.props;
+            data.fetchMore({
+                variables: {
+                  offset: newOffset
+                },
+                updateQuery: (prev, { fetchMoreResult }) => {
+                  return fetchMoreResult || prev;
+                }
+            });
         }
 
         renderPaginationControls(pageInfo?: PageInfo, data?: any[]): JSX.Element | null {
-            return pageInfo && data && pageInfo.totalCount > data.length ? <PaginationControls {...pageInfo} updatePage={this.updatePage} /> : null;
+            const showPaginationControls = pageInfo && data && pageInfo.totalCount > data.length;
+            if (showPaginationControls) {
+                return <PaginationControls {...pageInfo!} onNextPage={this.onNextPageRequested} onPreviousPage={this.onPreviousPageRequested} />;
+            }
+            return null;
         }
 
         render(): JSX.Element {
