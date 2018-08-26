@@ -1,7 +1,8 @@
 import gql from 'graphql-tag';
 
-export const READ_TALKS = gql`{
-	readTalks(offset: 1, limit: 1) {
+export const READ_TALKS = gql`
+query PaginatedTalks($offset: Int!, $limit: Int!) {
+	readTalks(offset: $offset, limit: $limit) {
 		pageInfo {
 			totalCount
 			hasNextPage
@@ -31,4 +32,5 @@ export const READ_TALKS = gql`{
 			}
 		}
 	}
-}`;
+}
+`;
