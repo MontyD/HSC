@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DataProps } from 'react-apollo';
 import { ApolloError } from 'apollo-client';
 import { graphql } from 'react-apollo';
-import { PaginatedResponse, PageInfo, PaginatedQueryVariables } from '../Models/paginated-response';
+import { PaginatedResponse, PageInfo, PaginatedQueryVariables } from '../models/paginated-response';
 import { DocumentNode } from 'graphql';
 
 const PAGE_SIZE = 1;

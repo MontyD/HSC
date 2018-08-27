@@ -1,0 +1,10 @@
+.talks-loading {
+    text-align: center;
+    font-size: 1.4em;
+    &:after {
+        @include loader;
+        margin: 1em auto;
+        width: 2em;
+        height: 2em;
+    }
+}
