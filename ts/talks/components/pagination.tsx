@@ -5,7 +5,7 @@ import { graphql } from 'react-apollo';
 import { PaginatedResponse, PageInfo, PaginatedQueryVariables } from '../models/paginated-response';
 import { DocumentNode } from 'graphql';
 
-const PAGE_SIZE = 1;
+const PAGE_SIZE = 10;
 
 interface PaginatedProps<T> extends DataProps<PaginatedResponse<T>, PaginatedQueryVariables> {}
 export interface PaginatedChildProps<T> {
@@ -30,10 +30,10 @@ interface PaginationControlsProps extends PageInfo {
 }
 
 const PaginationControls = ({hasNextPage, hasPreviousPage, onNextPage, onPreviousPage, disabled}: PaginationControlsProps) => (
-    <div className="pagination">
-        <button className="pagination__button" disabled={disabled || !hasPreviousPage} onClick={onPreviousPage}>Previous</button>
-        <button className="pagination__button" disabled={disabled || !hasNextPage} onClick={onNextPage}>Next</button>
-    </div>
+    <nav className="pagination" role="navigation" aria-label="pagination">
+        <button className="pagination-previous button" disabled={disabled || !hasPreviousPage} onClick={onPreviousPage}>Previous</button>
+        <button className="pagination-next button" disabled={disabled || !hasNextPage} onClick={onNextPage}>Next</button>
+    </nav>
 );
 
 export function paginationWrapper<T> (Component: React.ComponentType<PaginatedChildProps<T>>, queryName: string): React.ComponentClass<PaginatedProps<T>> {
@@ -63,7 +63,7 @@ export function paginationWrapper<T> (Component: React.ComponentType<PaginatedCh
         onPreviousPageRequested(): void {
             const {data} = this.props;
             const newOffset = data.variables.offset - PAGE_SIZE;
-            if (newOffset >= 0 ) {
+            if (newOffset >= 0) {
                 this.fetchNewOffset(newOffset);
             }
         }

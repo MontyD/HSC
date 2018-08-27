@@ -2,4 +2,7 @@
     &.is-tall {
         min-height: 90vh;
     }
+    &.is-thin {
+        max-width: 800px;
+    }
 }
