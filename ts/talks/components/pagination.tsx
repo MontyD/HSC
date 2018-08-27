@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { DataProps } from 'react-apollo';
 import { ApolloError } from 'apollo-client';
+import { graphql } from 'react-apollo';
 import { PaginatedResponse, PageInfo, PaginatedQueryVariables } from '../Models/paginated-response';
+import { DocumentNode } from 'graphql';
 
 const PAGE_SIZE = 1;
 
@@ -24,16 +26,17 @@ export const paginationOptions = {
 interface PaginationControlsProps extends PageInfo {
     onNextPage: () => void;
     onPreviousPage: () => void;
+    disabled: boolean;
 }
 
-const PaginationControls = ({hasNextPage, hasPreviousPage, onNextPage, onPreviousPage}: PaginationControlsProps) => (
+const PaginationControls = ({hasNextPage, hasPreviousPage, onNextPage, onPreviousPage, disabled}: PaginationControlsProps) => (
     <div className="pagination">
-        <button className="pagination__button" disabled={!hasPreviousPage} onClick={onPreviousPage}>Previous</button>
-        <button className="pagination__button" disabled={!hasNextPage} onClick={onNextPage}>Next</button>
+        <button className="pagination__button" disabled={disabled || !hasPreviousPage} onClick={onPreviousPage}>Previous</button>
+        <button className="pagination__button" disabled={disabled || !hasNextPage} onClick={onNextPage}>Next</button>
     </div>
 );
 
-export function pagination<T> (Component: React.ComponentType<PaginatedChildProps<T>>, queryName: string): React.ComponentClass<PaginatedProps<T>> {
+export function paginationWrapper<T> (Component: React.ComponentType<PaginatedChildProps<T>>, queryName: string): React.ComponentClass<PaginatedProps<T>> {
     return class extends React.Component<PaginatedProps<T>> {
 
         constructor(props: PaginatedProps<T>) {
@@ -73,12 +76,12 @@ export function pagination<T> (Component: React.ComponentType<PaginatedChildProp
             });
         }
 
-        renderPaginationControls(pageInfo?: PageInfo, data?: any[]): JSX.Element | null {
+        renderPaginationControls(disabled: boolean, pageInfo?: PageInfo, data?: any[]): JSX.Element {
             const showPaginationControls = pageInfo && data && pageInfo.totalCount > data.length;
             if (showPaginationControls) {
-                return <PaginationControls {...pageInfo!} onNextPage={this.onNextPageRequested} onPreviousPage={this.onPreviousPageRequested} />;
+                return <PaginationControls {...pageInfo!} disabled={disabled} onNextPage={this.onNextPageRequested} onPreviousPage={this.onPreviousPageRequested} />;
             }
-            return null;
+            return <></>;
         }
 
         render(): JSX.Element {
@@ -91,9 +94,13 @@ export function pagination<T> (Component: React.ComponentType<PaginatedChildProp
                         error={data.error}
                         data={data[queryName] ? data[queryName]!.edges.map(item => item.node) : []}
                     />
-                    {this.renderPaginationControls(data[queryName] && data[queryName]!.pageInfo, data[queryName] && data[queryName]!.edges)}
+                    {this.renderPaginationControls(data.loading, data[queryName] && data[queryName]!.pageInfo, data[queryName] && data[queryName]!.edges)}
                 </>
             );
         }
     };
+}
+
+export function pagination<T>(Component: React.ComponentType<PaginatedChildProps<T>>, queryName: string, query: DocumentNode): React.ComponentType<PaginatedResponse<T>> {
+    return graphql<{}, PaginatedChildProps<T>, PaginatedQueryVariables>(query, paginationOptions)(paginationWrapper(Component, queryName));
 }

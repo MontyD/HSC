@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { graphql } from 'react-apollo';
 import { READ_TALKS } from '../graphql/talks-queries';
 import { Talk } from '../Models/talk';
 import { Talk as TalkComponent } from './talk';
-import { pagination, PaginatedChildProps, paginationOptions } from './pagination';
-import { PaginatedQueryVariables } from '../models/paginated-response';
+import { pagination, PaginatedChildProps } from './pagination';
 import { Loading } from './loading';
 
 const Talks: React.SFC<PaginatedChildProps<Talk>> = ({data, loading, error}) => {
@@ -24,4 +22,4 @@ const Talks: React.SFC<PaginatedChildProps<Talk>> = ({data, loading, error}) => 
     return <div className="talk-list">{content}</div>;
 };
 
-export const TalkList = graphql<{}, PaginatedChildProps<Talk>, PaginatedQueryVariables>(READ_TALKS, paginationOptions)(pagination<Talk>(Talks, 'readTalks'));
+export const TalkList = pagination<Talk>(Talks, 'readTalks', READ_TALKS);
