@@ -67,13 +67,9 @@ export function pagination<T> (Component: React.ComponentType<PaginatedChildProp
 
         fetchNewOffset(newOffset: number) {
             const {data} = this.props;
-            data.fetchMore({
-                variables: {
-                  offset: newOffset
-                },
-                updateQuery: (prev, { fetchMoreResult }) => {
-                  return fetchMoreResult || prev;
-                }
+            data.refetch({
+                ...data.variables,
+                offset: newOffset
             });
         }
 
