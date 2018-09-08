@@ -6,7 +6,6 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./:/HSC
       - ./site.conf:/etc/nginx/conf.d/default.conf:ro
     links:
       - app
@@ -18,9 +17,13 @@ services:
     build: ./
     restart: always
     volumes:
-      - ./:/HSC
+      - ./app:/var/HSC/app
+      - ./node_modules:/var/HSC/node_modules
+      - ./public:/var/HSC/public
+      - ./themes:/var/HSC/themes
     environment:
       PHP__display_errors: 'On'
+      PHP__log_errors: 'On'
   database:
     image: mysql:5.7
     volumes:
