@@ -3,3 +3,4 @@
         <main id="app"></main>
      </div>
 </section>
+<div id="player" class="bottom-player"></div>

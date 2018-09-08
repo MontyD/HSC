@@ -40,14 +40,14 @@ module.exports = (function() {
         rules: [{
             test: /\.ts(x)?$/,
             loader: 'awesome-typescript-loader',
-            options: { 
+            options: {
                 configFile: 'tslint.json',
                 fix: true
              }
         }, {
             test: /\.scss$/,
             use: [
-                MiniCssExtractPlugin.loader,                    
+                MiniCssExtractPlugin.loader,
                 'css-loader',
                 {
                     loader: 'postcss-loader',
@@ -85,9 +85,9 @@ module.exports = (function() {
             minimizer: [
                 new UglifyJsPlugin({
                     uglifyOptions: {
-                        output: {
-                            comments: false
-                        },
+                        mangle: true,
+                        ecma: 5,
+                        toplevel: true,
                         minify: {},
                     }
                 })

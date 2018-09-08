@@ -9,20 +9,18 @@ services:
       - ./:/HSC
       - ./site.conf:/etc/nginx/conf.d/default.conf:ro
     links:
-      - php
+      - app
     depends_on:
-      - php
+      - app
       - database
-  php:
-    image: nanoninja/php-fpm
+  app:
+    image: hsc-local
+    build: ./
     restart: always
     volumes:
       - ./:/HSC
     environment:
       PHP__display_errors: 'On'
-      PHP__opcache.enable: 'On'
-      PHP__date.timezone:  '"Europe/London"'
-      PHP__pm.max_children: '10'
   database:
     image: mysql:5.7
     volumes:

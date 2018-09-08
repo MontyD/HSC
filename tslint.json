@@ -15,7 +15,11 @@
         "ter-indent": [true, 4, "spaces"],
         "jsx-no-multiline-js": false
     },
-    "types": [
-        "node"
+    "include": [
+        "typings/**/*"
+    ],
+    "typeRoots": [
+        "./node_modules/@types",
+        "./types"
     ]
 }
